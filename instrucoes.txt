@@ -1,0 +1,21 @@
+-- Instalr virtual env
+pip install virtualenv
+
+
+-- Criar ambiente 
+virtualenv mypython
+
+
+-- Criar projeto
+django-admin startproject testsite
+
+-- rodar
+python manage.py runserver your-server-ip:8000
+
+
+-- \Ativar
+mypthon\Scripts\activate
+
+
+--Desativar
+mypthon\Scripts\deactivate
