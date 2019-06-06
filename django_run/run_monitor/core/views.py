@@ -1,5 +1,23 @@
 from django.shortcuts import render
 
+from django.views.generic import ListView, DetailView 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Run
+#from django.core.urlresolvers import reverse
 # Create your views here.
 def home(request):
     return render(request, 'base.html', {})
+
+
+class RunList(ListView): 
+    model = Run
+
+'''
+class RunCreate (CreateView):
+    model = Run
+    fields = '__all__'
+ 
+    #def get_success_url(self):
+    #    return reverse('runs')
+
+'''

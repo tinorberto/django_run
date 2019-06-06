@@ -1,4 +1,4 @@
--- Instalr virtual env
+-- Instalar virtual env
 pip install virtualenv
 
 
@@ -10,12 +10,17 @@ virtualenv mypython
 django-admin startproject testsite
 
 -- rodar
-python manage.py runserver your-server-ip:8000
-
+python manage.py runserver
 
 -- \Ativar
-mypthon\Scripts\activate
+env\Scripts\activate
 
 
 --Desativar
 mypthon\Scripts\deactivate
+
+-- criar app
+ python manage.py startapp core
+
+ -- Atualizacao do model
+ python manage.py makemigrations

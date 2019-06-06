@@ -1,0 +1,21 @@
+<h1>Run List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data da corrida</th>
+            <th>Distância</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in object_list %}
+        <tr>
+            <td>{{ r.id_run }}</td>
+            <td>{{ r.run_date }}</td>
+            <td>{{ r.distance }}</td>
+            <td>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
