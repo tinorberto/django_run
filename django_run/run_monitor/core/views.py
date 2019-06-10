@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Run
+from django.urls import reverse
 #from django.core.urlresolvers import reverse
 # Create your views here.
 def home(request):
@@ -12,12 +13,13 @@ def home(request):
 class RunList(ListView): 
     model = Run
 
-'''
+
 class RunCreate (CreateView):
     model = Run
     fields = '__all__'
  
-    #def get_success_url(self):
-    #    return reverse('runs')
+    def get_success_url(self):
+       return reverse('run_list')
 
-'''
+class RunView(DetailView):
+    model = Run

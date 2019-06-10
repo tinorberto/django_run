@@ -10,7 +10,7 @@ virtualenv mypython
 django-admin startproject testsite
 
 -- rodar
-python manage.py runserver
+python django_run/run_monitor/manage.py runserver
 
 -- \Ativar
 env\Scripts\activate
@@ -24,3 +24,6 @@ mypthon\Scripts\deactivate
 
  -- Atualizacao do model
  python manage.py makemigrations
+ python manage.py migrate --run-syncdb
+
+ -- 

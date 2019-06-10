@@ -19,7 +19,8 @@ from . import views
 
 urlpatterns = [
     path('runs', views.RunList.as_view(), name='run_list'),
-    #path('run_create', views.RunCreate.as_view(), name='run_form'),
+    path('view/<int:pk>', views.RunView.as_view(), name='run_view'),
+    path('run_create', views.RunCreate.as_view(), name='run_form'),
     path('', views.home, name='home'),
 
 ]
