@@ -5,6 +5,10 @@
             <th>ID</th>
             <th>Data da corrida</th>
             <th>Distância</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
         </tr>
     </thead>
     <tbody>
@@ -13,6 +17,9 @@
             <td>{{ r.id_run }}</td>
             <td>{{ r.run_date }}</td>
             <td>{{ r.distance }}</td>
+            <td><a href="{% url 'run_view' r.id_run %}">view</a></td>
+            <td><a href="{% url 'run_edit' r.id_run %}">Edit</a></td>
+            <td><a href="{% url 'run_delete' r.id_run %}">Delete</a></td>
             <td>
             </td>
         </tr>

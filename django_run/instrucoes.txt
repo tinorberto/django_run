@@ -1,7 +1,6 @@
 -- Instalar virtual env
 pip install virtualenv
 
-
 -- Criar ambiente 
 virtualenv mypython
 
@@ -16,7 +15,7 @@ python django_run/run_monitor/manage.py runserver
 env\Scripts\activate
 
 
---Desativar
+--Desativar 
 mypthon\Scripts\deactivate
 
 -- criar app
@@ -27,3 +26,4 @@ mypthon\Scripts\deactivate
  python manage.py migrate --run-syncdb
 
  -- 
+ 

@@ -23,3 +23,19 @@ class RunCreate (CreateView):
 
 class RunView(DetailView):
     model = Run
+
+
+class RunUpdate(UpdateView):
+    model = Run
+    fields = ['id_run', 'run_date', 'run_date', 'total_time', 'distance']
+
+    def get_success_url(self):
+        return reverse('run_list')
+
+class RunDelete (DeleteView):
+    model = Run
+ 
+    def get_success_url(self):
+       return reverse('run_list')
+
+
