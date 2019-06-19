@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Run
+from .models import RunSteps
 from django.urls import reverse
 #from django.core.urlresolvers import reverse
 # Create your views here.
@@ -38,4 +39,8 @@ class RunDelete (DeleteView):
     def get_success_url(self):
        return reverse('run_list')
 
-
+class RunStepsCreate (CreateView):
+    model = RunSteps
+    fields = '__all__'
+    def get_success_url(self):
+       return reverse('run_list')

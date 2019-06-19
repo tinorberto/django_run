@@ -8,3 +8,9 @@ class Run(models.Model):
     created_date = models.DateTimeField( default=timezone.now)
     total_time = models.CharField(max_length=200)
     distance = models.FloatField()
+
+
+class RunSteps(models.Model):
+    km = models.IntegerField()
+    time = models.TimeField()
+    run =  models.ForeignKey(Run, on_delete=models.CASCADE)

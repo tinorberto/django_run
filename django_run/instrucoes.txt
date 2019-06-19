@@ -12,7 +12,7 @@ django-admin startproject testsite
 python django_run/run_monitor/manage.py runserver
 
 -- \Ativar
-env\Scripts\activate
+..\env\Scripts\activate
 
 
 --Desativar 
@@ -21,7 +21,7 @@ mypthon\Scripts\deactivate
 -- criar app
  python manage.py startapp core
 
- -- Atualizacao do model
+ -- Atualizacao do model, rodar os dois
  python manage.py makemigrations
  python manage.py migrate --run-syncdb
 

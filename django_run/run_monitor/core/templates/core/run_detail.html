@@ -1,8 +1,17 @@
-<h1>Run Details</h1>
-<h2>distance: {{object.distance}}</h2>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card-body">
+Run Details<br>
+distance: {{object.distance}}<br>
 Id :{{object.id_run}}  <br>
 run_date  :{{object.run_date}}  <br>
 created_date {{object.created_date}} <br>
 total_time {{object.total_time}} <br>
 
-Pages: {{ object.pages }}
+<a href="{% url 'step_form' object.id_run %}">Adiconar</a>
+
+</div>
+
+{% endblock %}
+
