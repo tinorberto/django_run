@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Run
 from .models import RunSteps
+from .forms import RunForm
 from django.urls import reverse
 #from django.core.urlresolvers import reverse
 # Create your views here.
@@ -17,7 +18,7 @@ class RunList(ListView):
 
 class RunCreate (CreateView):
     model = Run
-    fields = '__all__'
+    form_class = RunForm
  
     def get_success_url(self):
        return reverse('run_list')
