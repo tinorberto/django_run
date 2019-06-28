@@ -19,10 +19,21 @@ class RunForm(forms.ModelForm):
 
     class Meta:
         model = Run
-        fields = ['created_date', 'run_date', 'total_time', 'distance']
+        fields = ('created_date', 'run_date', 'total_time', 'distance')
+
 
     def clean_distance(self): 
         print (self.cleaned_data['distance'])
         data = 5
         self.cleaned_data['distance'] = 2
         return  self.cleaned_data['distance']
+
+
+    def clean(self):
+        print (self.clean)
+        cleaned_data=super(RunForm, self).clean()
+        print(cleaned_data)
+
+    def clean_created_date(self): 
+        print (self.cleaned_data['created_date'])
+        return self.cleaned_data['created_date']

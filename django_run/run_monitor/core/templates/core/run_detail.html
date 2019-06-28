@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<div class="card-body">
-Run Details<br>
-distance: {{object.distance}}<br>
-Id :{{object.id_run}}  <br>
-run_date  :{{object.run_date}}  <br>
-created_date {{object.created_date}} <br>
-total_time {{object.total_time}} <br>
-
-<a href="{% url 'step_form' object.id_run %}">Adiconar</a>
-
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Criar nova corrida</h1>
+    <a href="{% url 'run_form'%}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-download fa-sm text-white-50"></i> Criar Nova</a>
 </div>
 
-{% endblock %}
+<!-- Content Row -->
 
+<div class="row">
+
+
+    <div class="card-body">
+        Run Details<br>
+        distance: {{object.distance}}<br>
+        Id :{{object.id_run}} <br>
+        run_date :{{object.run_date}} <br>
+        created_date {{object.created_date}} <br>
+        total_time {{object.total_time}} <br>
+
+        <a href="{% url 'step_form' object.id_run %}">Adiconar</a>
+
+    </div>
+
+    {% endblock %}
+</div>

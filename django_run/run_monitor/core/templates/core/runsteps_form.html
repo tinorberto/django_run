@@ -1,15 +1,26 @@
-
 {% extends 'base.html' %}
 {% block content %}
-
-<div class="card-body">
-
-Contact Create
-<form  method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input  type="submit"  value="Submit"  />
-</form>
-
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Criar nova corrida</h1>
+    <a href="{% url 'run_form'%}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-download fa-sm text-white-50"></i> Criar Nova</a>
 </div>
-{% endblock %}
+
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Content Row -->
+    <div class="card-body">
+
+        Criar nova corrida:
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+
+    </div>
+    {% endblock %}
+</div>

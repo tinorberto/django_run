@@ -23,7 +23,7 @@ class RunCreate (CreateView):
     def get_success_url(self):
        return reverse('run_list')
 
-    def form_invalid(self,form):
+"""    def form_invalid(self,form):
         # Add action to invalid form phase
         print ("-------")
         messages.success(self.request, 'An error occured while processing the payment')
@@ -38,7 +38,7 @@ class RunCreate (CreateView):
         model.submitted_by = self.request.user
         model.save()
         return HttpResponseRedirect(self.get_success_url())
-
+"""
 class RunView(DetailView):
     model = Run
 
