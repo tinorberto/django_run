@@ -24,7 +24,7 @@ urlpatterns = [
     path('delete/<int:pk>', views.RunDelete.as_view(), name='run_delete'),
     path('run_create', views.RunCreate.as_view(), name='run_form'),
     
-    path('step_create/<int:pk>', views.RunStepsCreate.as_view(), name='step_form'),
+    path('step_create/(?P<id_run>\d+)/$', views.RunStepsCreate.as_view(), name='step_form'),
     path('', views.home, name='home'),
 
 ]

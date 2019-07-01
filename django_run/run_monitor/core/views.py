@@ -7,6 +7,7 @@ from .models import RunSteps
 from .forms import RunForm
 from .forms import RunStepsForm
 from django.urls import reverse
+from django.shortcuts import get_list_or_404, get_object_or_404
 #from django.core.urlresolvers import reverse
 # Create your views here.
 def home(request):
@@ -61,6 +62,15 @@ class RunStepsCreate (CreateView):
     model = RunSteps
     form_class = RunStepsForm 
     
+
+    def get_initial(self):
+        print ("----")
+        print (self.kwargs.get('id_run'))
+        run = get_object_or_404(Run, id_run=self.kwargs.get('id_run'))
+        return {
+            'run' : run
+        }
+
     
     def get_success_url(self):
        return reverse('run_list')
