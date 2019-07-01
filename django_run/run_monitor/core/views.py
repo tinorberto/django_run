@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Run
 from .models import RunSteps
 from .forms import RunForm
+from .forms import RunStepsForm
 from django.urls import reverse
 #from django.core.urlresolvers import reverse
 # Create your views here.
@@ -58,12 +59,15 @@ class RunDelete (DeleteView):
 
 class RunStepsCreate (CreateView):
     model = RunSteps
-    fields = '__all__'
+    form_class = RunStepsForm 
+    
+    
     def get_success_url(self):
        return reverse('run_list')
     
+    '''
     def form_valid(self, form):
-        pirnt ('---')
+        prrnt ('---')
         print (model.created_date)
         model.created_date = model.created_date.strftime("%YYYY-%MM-%DD %HH:%MM:%SS.SSS")
         print (model.created_date)
@@ -71,3 +75,4 @@ class RunStepsCreate (CreateView):
         model.submitted_by = self.request.user
         model.save()
         return HttpResponseRedirect(self.get_success_url())
+    '''
