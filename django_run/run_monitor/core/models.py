@@ -9,6 +9,9 @@ class Run(models.Model):
     total_time = models.CharField(max_length=200)
     distance = models.FloatField()
 
+    class Meta:
+        verbose_name = 'Corrida'
+        verbose_name_plural = 'Corridas'
 
 class RunSteps(models.Model):
     km = models.IntegerField()

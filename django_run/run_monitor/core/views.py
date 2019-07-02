@@ -25,22 +25,7 @@ class RunCreate (CreateView):
     def get_success_url(self):
        return reverse('run_list')
 
-"""    def form_invalid(self,form):
-        # Add action to invalid form phase
-        print ("-------")
-        messages.success(self.request, 'An error occured while processing the payment')
-        return self.render_to_response(self.get_context_data(form=form)) 
-
-    def form_valid(self, form):
-        print ('-OOOOOOOOOOOOOO--')
-        print (model.created_date)
-        model.created_date = model.created_date.strftime("%YYYY-%MM-%DD %HH:%MM:%SS.SSS")
-        print (model.created_date)
-        model = form.save(commit=False)
-        model.submitted_by = self.request.user
-        model.save()
-        return HttpResponseRedirect(self.get_success_url())
-"""
+       
 class RunView(DetailView):
     model = Run
 
@@ -64,7 +49,6 @@ class RunStepsCreate (CreateView):
     
 
     def get_initial(self):
-        print ("----")
         print (self.kwargs.get('id_run'))
         run = get_object_or_404(Run, id_run=self.kwargs.get('id_run'))
         return {
@@ -74,15 +58,3 @@ class RunStepsCreate (CreateView):
     
     def get_success_url(self):
        return reverse('run_list')
-    
-    '''
-    def form_valid(self, form):
-        prrnt ('---')
-        print (model.created_date)
-        model.created_date = model.created_date.strftime("%YYYY-%MM-%DD %HH:%MM:%SS.SSS")
-        print (model.created_date)
-        model = form.save(commit=False)
-        model.submitted_by = self.request.user
-        model.save()
-        return HttpResponseRedirect(self.get_success_url())
-    '''
