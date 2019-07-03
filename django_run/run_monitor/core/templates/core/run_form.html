@@ -15,6 +15,7 @@
 
         Create new run:
         <form method="post">
+            <!-- token de seguranca , sempre e necessario-->
             {% csrf_token %}
             {{ form.as_table  }}
             <input type="submit" value="Submit" />

@@ -4,6 +4,18 @@ from .models import RunSteps
 
 from datetime import datetime
 
+"""
+Quando nao existe o model, usamos o forms.Form
+widget : objeto para ser renderizado
+
+forms.is_valid()
+quando passa dele form que ele gera 
+form. campo nao funciona
+
+forms.erros.message  mesagem 
+cleaned_data campo ja valido
+
+"""
 class RunForm(forms.ModelForm):
     created_date = forms.DateTimeField(
     label = 'Data da corrida',
@@ -38,9 +50,20 @@ class RunStepsForm(forms.ModelForm):
     run = forms.IntegerField(widget=forms.HiddenInput()) 
     class Meta:
         model = RunSteps
-        fields = ('km', 'time' )
+        fields = ('km', 'time' , 'run')
 
+    
+    '''
     def __init__(self, *args, **kwargs):
-         super(RunStepsForm, self).__init__(*args, **kwargs)
-         print (args)
-         print (self.fields)
+        super(RunStepsForm, self).__init__(*args, **kwargs)
+    
+        #print (type(kwargs.keys()))   
+    
+        print ("---__init__-----")
+        #print (kwargs['initial']['run'])
+        #print (self.fields)
+        initial = kwargs.setdefault('initial', {})
+        print (self.fields)
+        self.fields['run'].initial = 1
+        forms.ModelForm.__init__(self, *args, **kwargs)
+    '''
