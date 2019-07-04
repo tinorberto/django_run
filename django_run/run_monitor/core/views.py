@@ -47,8 +47,15 @@ class RunStepsCreate (CreateView):
     model = RunSteps
     form_class = RunStepsForm 
 
+    def get_form_kwargs(self):
+        print ("--get_form_kwargs--")
+        kwargs = super(RunStepsCreate, self).get_form_kwargs()
+        "customer_email = self.request.GET['id_run']"
+        print (kwargs)
+        kwargs['run']  =self.kwargs.get('id_run')
+        return kwargs
 
-    
+    ''''
     def get_context_data(self, **kwargs):
         "data = super().get_context_data(**kwargs)"
         data = context_data = super(RunStepsCreate, self).get_context_data(**kwargs)
@@ -56,10 +63,10 @@ class RunStepsCreate (CreateView):
         print (type(data["form"].fields))
         print ((data["form"].fields["run"].widget))
         run = get_object_or_404(Run, id_run=self.kwargs.get('id_run'))
-        data['run'] = run
+        data['run'] = 1
         print (run)
         return data 
-
+    '''
     '''
     get_object_or_404 - Ccaso nao retorne lancar um 404
     '''

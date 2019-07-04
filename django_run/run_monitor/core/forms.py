@@ -47,23 +47,24 @@ class RunStepsForm(forms.ModelForm):
     widget = forms.TextInput( attrs={'class':'form-control'})) 
 
 
-    run = forms.IntegerField(widget=forms.HiddenInput()) 
+    run = forms.IntegerField(label = 'ID') 
     class Meta:
         model = RunSteps
         fields = ('km', 'time' , 'run')
 
     
-    '''
+    
     def __init__(self, *args, **kwargs):
+        print ("---__init__-----")
+        self.run = kwargs.pop('run', None)
+        print (self.run)
         super(RunStepsForm, self).__init__(*args, **kwargs)
     
         #print (type(kwargs.keys()))   
     
-        print ("---__init__-----")
+        
         #print (kwargs['initial']['run'])
         #print (self.fields)
-        initial = kwargs.setdefault('initial', {})
         print (self.fields)
-        self.fields['run'].initial = 1
-        forms.ModelForm.__init__(self, *args, **kwargs)
-    '''
+        self.fields['run'].initial = self.run
+        #forms.ModelForm.__init__(self, *args, **kwargs)
